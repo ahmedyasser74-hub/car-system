@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Login for quick service using emergency code or email and password.">
+    <title>Quick Service Login</title>
+    <link rel="icon" href="information.png" type="image/x-icon">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000; /* Fallback color for the background image */
+        }
+
+        /* Background image setup */
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('sq-lim-HUEkuoOkY-g-unsplash.jpg'); /* Replace with your uploaded image path */
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.7); /* Darken background for contrast */
+            z-index: -2;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay for readability */
+            z-index: -1;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent white */
+            border-radius: 15px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+            padding: 30px;
+            width: 90%;
+            max-width: 400px;
+            animation: fadeIn 1s ease-in-out; /* Fade-in effect */
+        }
+
+        h1 {
+            color: #d32f2f; /* Red color for emphasis */
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 30px;
+        }
+
+        label {
+            font-size: 16px;
+            font-weight: bold;
+            margin: 10px 0 5px;
+            display: block;
+        }
+
+        input {
+            width: calc(100% - 20px); /* Adjusting for padding */
+            padding: 10px;
+            margin: 5px auto 15px auto; /* Centered with balanced margins */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            display: block;
+            transition: all 0.3s ease;
+        }
+
+        input:focus {
+            border-color: #d32f2f; /* Highlight input on focus */
+            box-shadow: 0 0 5px rgba(211, 47, 47, 0.5);
+        }
+
+        .button {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #d32f2f;
+            color: white;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .button:hover {
+            background-color: #b71c1c;
+            transform: translateY(-3px);
+        }
+
+        .or-divider {
+            text-align: center;
+            margin: 15px 0;
+            font-size: 14px;
+            color: #888;
+        }
+
+        /* Animation for container */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive design */
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 26px;
+            }
+
+            input {
+                font-size: 14px;
+            }
+
+            .button {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background layers -->
+    <div class="background"></div>
+    <div class="overlay"></div>
+
+    <!-- Form container -->
+    <div class="container">
+        <h1>Quick Service Login</h1>
+        <form action="post_login.html" method="get">
+            <!-- Emergency Code -->
+            <label for="emergency_code">Emergency Code</label>
+            <p>Back to Gmail inbox to find your emergency code or contact us.</p>
+            <input type="text" id="emergency_code" name="emergency_code" placeholder="Enter Emergency Code">
+
+            <div class="or-divider">OR</div>
+
+            <!-- Email -->
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter Email Address">
+
+            <!-- Password -->
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter Password">
+
+            <!-- Submit -->
+            <button type="submit" class="button">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

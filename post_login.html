@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Provide your location and car photo for quick assistance.">
+    <title>Post Login - Quick Assistance</title>
+    <link rel="icon" href="information.png" type="image/x-icon">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #000; /* Fallback color */
+        }
+
+        /* Background image setup */
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('freepik__expand__4674.png'); /* Replace with your image path */
+            background-size: cover;
+            background-position: center;
+            z-index: -2;
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent overlay for readability */
+            z-index: -1;
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.95); /* Slightly transparent white */
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.4);
+            padding: 25px;
+            width: 90%;
+            max-width: 400px;
+            text-align: center;
+            z-index: 1;
+        }
+
+        h1 {
+            color: #ff9800;
+            margin-bottom: 20px;
+            font-size: 28px;
+        }
+
+        p {
+            color: #555;
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-size: 16px;
+            font-weight: bold;
+            margin: 10px 0 5px;
+            display: block;
+            text-align: left;
+            color: #333;
+        }
+
+        input, button {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        input[type="file"] {
+            padding: 5px;
+        }
+
+        button {
+            background: linear-gradient(45deg, #ff9800, #f44336);
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease-in-out;
+            border-radius: 30px;
+        }
+
+        button:hover {
+            background: linear-gradient(45deg, #f44336, #ff9800);
+            transform: scale(1.1);
+        }
+
+        .gps-button {
+            background-color: #4caf50;
+            margin-top: 10px;
+        }
+
+        .gps-button:hover {
+            background-color: #388e3c;
+        }
+
+        .info {
+            font-size: 14px;
+            color: #555;
+            margin-top: 10px;
+        }
+
+        #image-preview {
+            max-width: 100%;
+            margin-top: 10px;
+            display: none;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Background layers -->
+    <div class="background"></div>
+    <div class="overlay"></div>
+
+    <!-- Form container -->
+    <div class="container">
+        <h1>Login Successful</h1>
+        <p>Provide the following details for swift assistance:</p>
+
+        <form action="final_step.html" method="get" enctype="multipart/form-data">
+            <!-- Location -->
+            <label for="location">Your Location</label>
+            <input type="text" id="location" name="location" placeholder="Enter your current location" required>
+            <button type="button" class="gps-button" onclick="getLocation()">Get My Location</button>
+
+            <!-- Photo of Accident Area -->
+            <label for="car_photo">Upload Photo of Accident Area</label>
+            <input type="file" id="car_photo" name="car_photo" accept="image/*" required>
+            <img id="image-preview" alt="Preview of uploaded image">
+
+            <!-- Submit Button -->
+            <button type="submit">Submit</button>
+        </form>
+
+        <p class="info">Your location and photo will help our team assist you faster.</p>
+    </div>
+
+    <script>
+        // Function to get the location using Geolocation API
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition, showError);
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        }
+
+        // Function to display the position
+        function showPosition(position) {
+            var latitude = position.coords.latitude;
+            var longitude = position.coords.longitude;
+
+            // Display the location in the input field
+            document.getElementById("location").value = "Latitude: " + latitude + ", Longitude: " + longitude;
+        }
+
+        // Function to handle errors
+        function showError(error) {
+            switch(error.code) {
+                case error.PERMISSION_DENIED:
+                    alert("User denied the request for Geolocation.");
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    alert("Location information is unavailable.");
+                    break;
+                case error.TIMEOUT:
+                    alert("The request to get user location timed out.");
+                    break;
+                case error.UNKNOWN_ERROR:
+                    alert("An unknown error occurred.");
+                    break;
+            }
+        }
+
+        // Preview for uploaded image
+        document.getElementById('car_photo').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const preview = document.getElementById('image-preview');
+                    preview.src = e.target.result;
+                    preview.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+</body>
+</html>

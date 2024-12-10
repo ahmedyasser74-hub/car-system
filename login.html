@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Login page for users to access quick services.">
+    <title>Member Login</title>
+    <link rel="icon" href="information.png" type="image/x-icon">
+    <style>
+        /* General Styles */
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: url('background.jpg') no-repeat center center/cover;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        /* Main container */
+        .main-container {
+            width: 90%;
+            max-width: 500px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            animation: slideIn 1s ease-out;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(90deg, #6a11cb, #2575fc);
+            color: white;
+            font-size: 30px;
+            font-weight: bold;
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Form Group */
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #6a11cb;
+            box-shadow: 0 0 5px rgba(106, 17, 203, 0.5);
+        }
+
+        /* Submit Button */
+        button {
+            background: linear-gradient(90deg, #43cea2, #185a9d);
+            color: white;
+            border: none;
+            padding: 15px;
+            font-size: 18px;
+            width: 100%;
+            margin-top: 15px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: linear-gradient(90deg, #3bb78f, #0bab64);
+        }
+
+        /* Info Text */
+        .info {
+            color: #666;
+            font-size: 14px;
+            margin: 15px 0;
+            text-align: center;
+        }
+
+        /* OR Divider */
+        .info-divider {
+            position: relative;
+            text-align: center;
+            font-size: 16px;
+            color: #888;
+            margin: 20px 0;
+        }
+
+        .info-divider::before, .info-divider::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 40%;
+            height: 1px;
+            background: #ddd;
+        }
+
+        .info-divider::before {
+            left: 0;
+        }
+
+        .info-divider::after {
+            right: 0;
+        }
+
+        /* Animation */
+        @keyframes slideIn {
+            0% {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="main-container">
+        <div class="header">
+            Member Login
+        </div>
+
+        <form action="post_login.html" method="get">
+            <!-- Emergency Code -->
+            <div class="form-group">
+                <label for="emergency_code">Emergency Code</label>
+                <input type="text" id="emergency_code" name="emergency_code" placeholder="Enter your Emergency Code">
+            </div>
+
+            <!-- OR Divider -->
+            <div class="info-divider">OR</div>
+
+            <!-- Email -->
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email">
+            </div>
+
+            <!-- Password -->
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password">
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit">Login</button>
+        </form>
+
+        <p class="info">Access your account and enjoy our quick services.</p>
+    </div>
+</body>
+</html>

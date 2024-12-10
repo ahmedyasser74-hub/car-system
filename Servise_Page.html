@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Car System: Comprehensive roadside assistance for breakdowns, maintenance, and car cleanliness.">
+    <link rel="icon" href="information.png" type="image/x-icon">
+    <title>Car System - Services</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #d7e9f7, #ffffff);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #2c3e50;
+        }
+
+        .header {
+            position: relative;
+            text-align: center;
+            width: 100%;
+        }
+
+        .header img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            filter: brightness(70%);
+        }
+
+        .header-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 400px;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3));
+        }
+
+        .header-title {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #ecf0f1;
+            font-size: 40px;
+            font-weight: bold;
+            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.7);
+        }
+
+        .main-container {
+            width: 100%;
+            max-width: 1200px;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .card {
+            background: #ecf0f1;
+            width: 350px;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-align: center;
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #2980b9;
+        }
+
+        .card button {
+            border: none;
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            font-size: 16px;
+            color: white;
+            background: #3498db;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .card button:hover {
+            background: #2980b9;
+        }
+
+        .gold-button {
+            background: #f1c40f;
+        }
+
+        .gold-button:hover {
+            background: #f39c12;
+        }
+
+        .description {
+            margin-top: 30px;
+            font-size: 18px;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .description ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            text-align: left;
+            margin-top: 15px;
+        }
+
+        @media (max-width: 768px) {
+            .header img {
+                height: 250px;
+            }
+
+            .header-title {
+                font-size: 28px;
+            }
+
+            .card {
+                width: 90%;
+            }
+
+            .description {
+                padding: 0 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img src="icon.jpg" alt="Car System">
+        <div class="header-overlay"></div>
+        <h1 class="header-title">Car System</h1>
+    </div>
+
+    <div class="main-container">
+        <div class="card">
+            <div class="card-title">Quick Services</div>
+            <button onclick="location.href='new_customer.html'">New Customer (First Use)</button>
+            <button onclick="location.href='quick_service_login.html'">Have an Account</button>
+            <button onclick="location.href='quick_service_login_gold_member.html'" class="gold-button">Golden Member</button>
+        </div>
+
+        <div class="card">
+            <div class="card-title">Login / Registration</div>
+            <button onclick="location.href='regeneration_Golden_Member.html'" class="gold-button">Golden Member</button>
+            <button onclick="location.href='login.html'">Login</button>
+            <button onclick="location.href='regeneration.html'">Create New Account</button>
+        </div>
+    </div>
+
+    <p class="description">
+        Mechanical System addresses the challenges drivers face with unexpected vehicle issues on the road, such as breakdowns, maintenance needs, and even car cleanliness. This is a pressing need, particularly for individuals who frequently drive long distances, fleet managers, and rental car companies. The Mechanical System aims to deliver comprehensive, immediate roadside support, utilizing advanced technology to enhance service quality and efficiency.
+        <ul>
+            <li>Roadside assistance for vehicle breakdowns</li>
+            <li>Immediate response for maintenance and repairs</li>
+            <li>Advanced technology to enhance service quality</li>
+        </ul>
+    </p>
+</body>
+</html>

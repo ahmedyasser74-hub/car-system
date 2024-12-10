@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Welcome to Quick Services for immediate assistance.">
+    <link rel="icon" href="information.png" type="image/x-icon">
+    <title>Quick Service - Welcome</title>
+    <style>
+        /* General styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            background-color: #000;
+            overflow-x: hidden;
+        }
+
+        /* Background layer with image */
+        .background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url('tahamie-farooqui-sdDgo2jwpck-unsplash.jpg'); /* Replace with your background image */
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.5);
+            z-index: -2;
+        }
+
+        /* Semi-transparent overlay */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: -1;
+        }
+
+        /* Form container */
+        .container {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+            width: 90%;
+            max-width: 700px;
+            padding: 30px;
+            margin: 50px auto;
+            transform: translateY(30px);
+            animation: slideIn 0.5s ease-out;
+        }
+
+        h1 {
+            color: #d32f2f;
+            text-align: center;
+            margin-bottom: 25px;
+            font-size: 2em;
+        }
+
+        h1:nth-child(2) {
+            color: #4caf50;
+            font-size: 1.5em;
+            margin-top: 10px;
+        }
+
+        label {
+            font-size: 16px;
+            font-weight: bold;
+            margin: 12px 0 5px;
+            display: block;
+            color: #333;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 15px;
+            margin: 8px 0 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+            box-sizing: border-box;
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            border-color: #d32f2f;
+            box-shadow: 0 0 5px rgba(211, 47, 47, 0.5);
+        }
+
+        button {
+            background-color: #d32f2f;
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, transform 0.2s;
+        }
+
+        button:hover {
+            background-color: #b71c1c;
+            transform: scale(1.05);
+        }
+
+        .photo-input {
+            text-align: center;
+        }
+
+        .photo-input input {
+            padding: 12px;
+            border: 1px dashed #ccc;
+            border-radius: 8px;
+            background-color: #f1f1f1;
+        }
+
+        .gps-button {
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, transform 0.2s;
+            width: 100%;
+            margin-top: 15px;
+        }
+
+        .gps-button:hover {
+            background-color: #388e3c;
+            transform: scale(1.05);
+        }
+
+        /* Animation */
+        @keyframes slideIn {
+            0% { transform: translateY(100px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="overlay"></div>
+
+    <div class="container">
+        <h1>Welcome to Quick Service</h1>
+        <h1>Your Assistance is Our Priority</h1>
+        <form action="final_step.html" method="get">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+
+            <label for="gender">Gender</label>
+            <select id="gender" name="gender" required>
+                <option value="">Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+
+            <label for="national_id">National ID Number</label>
+            <input type="text" id="national_id" name="national_id" placeholder="Enter your national ID" required>
+
+            <label for="location">Location</label>
+            <textarea id="location" name="location" placeholder="Allow GPS or describe your location" required></textarea>
+
+            <button type="button" class="gps-button" onclick="getLocation()">Get My Location</button>
+
+            <label for="car_accident_photo">Photo of Car at Accident Spot</label>
+            <div class="photo-input">
+                <input type="file" id="car_accident_photo" name="car_accident_photo" accept="image/*" required>
+            </div>
+
+            <label for="car_card_photo">Photo of Car Card</label>
+            <div class="photo-input">
+                <input type="file" id="car_card_photo" name="car_card_photo" accept="image/*" required>
+            </div>
+
+            <label for="car_number">Car Number</label>
+            <input type="text" id="car_number" name="car_number" placeholder="Enter your car number" required>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        // Function to get the location using Geolocation API
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition, showError);
+            } else {
+                alert("Geolocation is not supported by this browser.");
+            }
+        }
+
+        // Function to display the position
+        function showPosition(position) {
+            var latitude = position.coords.latitude;
+            var longitude = position.coords.longitude;
+
+            // Display the location in the textarea
+            document.getElementById("location").value = "Latitude: " + latitude + ", Longitude: " + longitude;
+        }
+
+        // Function to handle errors
+        function showError(error) {
+            switch(error.code) {
+                case error.PERMISSION_DENIED:
+                    alert("User denied the request for Geolocation.");
+                    break;
+                case error.POSITION_UNAVAILABLE:
+                    alert("Location information is unavailable.");
+                    break;
+                case error.TIMEOUT:
+                    alert("The request to get user location timed out.");
+                    break;
+                case error.UNKNOWN_ERROR:
+                    alert("An unknown error occurred.");
+                    break;
+            }
+        }
+    </script>
+</body>
+</html>

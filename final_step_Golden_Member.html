@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Golden Member Final Step for Quick Service. Confirm and agree to the service price.">
+    <title>Final Step - Golden Member</title>
+    <link rel="icon" href="information.png" type="image/x-icon">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #333333, #ff6600); /* Dark to orange gradient */
+            color: #fff;
+        }
+
+        .container {
+            background-color: rgba(0, 0, 0, 0.8); /* Dark transparent background for elegance */
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            padding: 40px;
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: 42px;
+            font-weight: bold;
+            color: #ff6600;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        p {
+            font-size: 18px;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+
+        .price {
+            font-size: 26px;
+            font-weight: bold;
+            color: #ff6f00;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        button {
+            background-color: #ff6600;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            padding: 14px 24px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 15px rgba(255, 102, 0, 0.5);
+        }
+
+        button:hover {
+            background-color: #ffec40;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 102, 0, 0.7);
+        }
+
+        button i {
+            margin-right: 8px;
+            font-size: 18px;
+        }
+
+        .info {
+            font-size: 16px;
+            color: #fff;
+            margin-top: 20px;
+        }
+
+        .footer {
+            color: #ccc;
+            font-size: 14px;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 36px;
+            }
+
+            p, .price {
+                font-size: 16px;
+            }
+
+            button {
+                font-size: 16px;
+                padding: 12px 20px;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(-30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .container {
+            animation: fadeIn 1s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>You're Almost There!</h1>
+        <p>Dear <strong>Golden Member</strong>, you're just one step away from receiving our premium assistance. We're ready to serve you right now.</p>
+        
+        <p class="price">Total Service Price: $150.00</p>
+
+        <p>Do you agree to proceed with the service at this price?</p>
+
+        <!-- Buttons for agreement -->
+        <form action="Golden_Member_Payment.html" method="get">
+            <button type="submit" name="action" value="agree">
+                <i class="fas fa-check"></i> I Agree to Proceed
+            </button>
+        </form>
+
+        <form action="index.html" method="get">
+            <button type="submit" name="action" value="cancel">
+                <i class="fas fa-times"></i> Cancel Service
+            </button>
+        </form>
+
+        <p class="info">By confirming, our premium service team will be dispatched immediately. If you cancel, no further actions will be taken.</p>
+
+        <div class="footer">
+            <p>Thank you for choosing our premium services. We are here to help you 24/7.</p>
+        </div>
+    </div>
+
+    <!-- FontAwesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</body>
+</html>

@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Golden Member Login for Exclusive Quick Assistance. Enter your emergency code or login details.">
+    <title>Golden Member - Quick Service Login</title>
+    <link rel="icon" href="information.png" type="image/x-icon">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #333333, #ff6600); /* Dark to orange gradient */
+            color: #fff;
+        }
+
+        .container {
+            background-color: rgba(0, 0, 0, 0.8); /* Dark transparent background for elegance */
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+            padding: 40px;
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: 42px;
+            font-weight: bold;
+            color: #ff6600;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .motivational {
+            font-size: 22px;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        label {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 10px 0 5px;
+            text-align: left;
+            color: #ff6600;
+        }
+
+        input {
+            width: calc(100% - 20px);
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ff6600;
+            border-radius: 5px;
+            font-size: 16px;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            transition: all 0.3s ease;
+        }
+
+        input:focus {
+            border-color: #ffec40;
+            outline: none;
+            box-shadow: 0 0 10px rgba(255, 236, 64, 0.5);
+        }
+
+        button {
+            background-color: #ff6600;
+            color: #fff;
+            border: none;
+            font-weight: bold;
+            padding: 14px 24px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 18px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 5px 15px rgba(255, 102, 0, 0.5);
+        }
+
+        button:hover {
+            background-color: #ffec40;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(255, 102, 0, 0.7);
+        }
+
+        .error-message {
+            color: #f44336;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+
+        .info {
+            font-size: 14px;
+            color: #fff;
+            margin-top: 20px;
+            font-style: italic;
+        }
+
+        .or-divider {
+            font-size: 16px;
+            color: #ff6600;
+            margin: 20px 0;
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(-30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .container {
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 32px;
+            }
+
+            input, button {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Golden Member Quick Service</h1>
+        <p class="motivational">You're among our elite! As a Golden Member, you deserve the fastest and most dedicated assistance. Let's get you the help you need, now!</p>
+
+        <form id="loginForm" action="post_login_gold_member.html" method="get">
+            <!-- Emergency Code Section -->
+            <div id="emergencyCodeSection">
+                <label for="emergency_code">Enter Emergency Code</label>
+                <input type="text" id="emergency_code" name="emergency_code" placeholder="Enter your emergency code">
+                <p class="or-divider">- OR -</p>
+            </div>
+
+            <!-- Email and Password Section -->
+            <div id="emailPasswordSection">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email">
+
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password">
+            </div>
+
+            <!-- Error Message for Empty Inputs -->
+            <p class="error-message" id="error-message"></p>
+
+            <button type="submit">Login & Request Service</button>
+        </form>
+
+        <p class="info">Use your emergency code to quickly verify your identity or log in with your email and password. Your exclusive service is just a click away!</p>
+    </div>
+
+    <script>
+        document.getElementById("loginForm").onsubmit = function(event) {
+            event.preventDefault(); // Prevent form submission for validation
+            
+            // Get input values
+            var emergencyCode = document.getElementById("emergency_code").value;
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+            
+            // Check if either emergency code or email/password is filled in
+            if (emergencyCode === "" && (email === "" || password === "")) {
+                document.getElementById("error-message").innerText = "Please provide either your emergency code or both email and password.";
+            } else {
+                // Form is valid, proceed with submission
+                document.getElementById("error-message").innerText = "";
+                document.getElementById("loginForm").submit();
+            }
+        };
+    </script>
+</body>
+</html>

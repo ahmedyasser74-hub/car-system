@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Regeneration page for new member with personal and car details.">
+    <title>New Member Regeneration</title>
+    <link rel="icon" href="information.png" type="image/x-icon">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #00d2d3, #004b8c);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .main-container {
+            width: 100%;
+            max-width: 600px;
+            background-color: #fff;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+            position: relative;
+            animation: fadeIn 1.2s ease-in-out;
+        }
+
+        /* Animation for fade-in effect */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Header Style */
+        .header {
+            text-align: center;
+            background: linear-gradient(45deg, #ff7f50, #ff6347);
+            padding: 20px;
+            font-size: 32px;
+            color: white;
+            font-weight: 700;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Form labels */
+        label {
+            color: #333;
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 15px;
+            display: block;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        input, select {
+            width: calc(100% - 24px);
+            padding: 14px;
+            font-size: 16px;
+            margin: 10px auto;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            outline: none;
+            background-color: #f7f7f7;
+            transition: all 0.3s ease;
+        }
+
+        input:focus, select:focus {
+            border-color: #ff7f50;
+            background-color: #fff;
+        }
+
+        /* Submit Button */
+        button {
+            background: #00d2d3;
+            color: white;
+            border: none;
+            padding: 16px;
+            font-size: 18px;
+            width: 100%;
+            margin-top: 20px;
+            cursor: pointer;
+            border-radius: 8px;
+            font-weight: 700;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background: #004b8c;
+            transform: scale(1.05);
+        }
+
+        /* Info text */
+        .info {
+            font-size: 14px;
+            color: #666;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .info a {
+            color: #00d2d3;
+            text-decoration: none;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="main-container">
+        <div class="header">
+            New Member Registration
+        </div>
+
+        <form action="confirmation.html" method="get">
+            <!-- Full Name -->
+            <label for="full_name">Full Name</label>
+            <input type="text" id="full_name" name="full_name" placeholder="Enter your full name" required>
+
+            <!-- Phone Number -->
+            <label for="phone_number">Phone Number</label>
+            <input type="text" id="phone_number" name="phone_number" placeholder="Enter your phone number" required>
+
+            <!-- National ID -->
+            <label for="national_id">National ID</label>
+            <input type="text" id="national_id" name="national_id" placeholder="Enter your national ID" required>
+
+            <!-- Gender -->
+            <label for="gender">Gender</label>
+            <select id="gender" name="gender" required>
+                <option value="" disabled selected>Select your gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+
+            <!-- Car Number -->
+            <label for="car_number">Car Number (Card)</label>
+            <input type="text" id="car_number" name="car_number" placeholder="Enter your car number" required>
+
+            <!-- Submit Button -->
+            <button type="submit">Submit Registration</button>
+        </form>
+
+        <p class="info">After submitting, you will receive a confirmation message. We look forward to assisting you.</p>
+    </div>
+
+</body>
+</html>

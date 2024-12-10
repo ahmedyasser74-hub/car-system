@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Golden Member Payment Options with Visa Card Details.">
+    <title>Golden Member Payment</title>
+    <link rel="icon" href="information.png" type="image/x-icon">
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background: #f1f1f1; /* Lighter gray background */
+            color: #333; /* Dark text color for readability */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .main-container {
+            width: 80%;
+            max-width: 600px;
+            background-color: #fff;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            animation: fadeIn 1.2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background-color: #2c3e50; /* Dark blue-gray background */
+            color: #f39c12; /* Soft gold text */
+            font-size: 36px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+        }
+
+        button {
+            background-color: #f39c12; /* Soft gold */
+            color: white;
+            border: none;
+            padding: 18px;
+            font-size: 18px;
+            width: 100%;
+            margin-top: 20px;
+            cursor: pointer;
+            border-radius: 8px;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #e67e22; /* Slightly darker gold */
+            transform: scale(1.05);
+        }
+
+        .info {
+            font-size: 16px;
+            color: #7f8c8d;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .visa-details {
+            margin-top: 20px;
+            display: none;
+            background: #ecf0f1; /* Light gray background */
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .visa-details label {
+            color: #2c3e50; /* Dark blue-gray text */
+            font-size: 16px;
+            font-weight: bold;
+            display: block;
+            margin-top: 15px;
+        }
+
+        .visa-details input {
+            width: 100%;
+            padding: 14px;
+            font-size: 16px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .visa-details input:focus {
+            border-color: #f39c12;
+            background-color: #fff;
+        }
+
+        .visa-details button {
+            background-color: #f39c12;
+            color: white;
+            border: none;
+            padding: 18px;
+            font-size: 18px;
+            width: 100%;
+            margin-top: 20px;
+            cursor: pointer;
+            border-radius: 8px;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .visa-details button:hover {
+            background-color: #e67e22;
+        }
+
+        .currency-select, .discount-code {
+            margin-top: 20px;
+        }
+
+        .currency-select select, .discount-code input {
+            padding: 14px;
+            font-size: 16px;
+            width: 100%;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        .discount-code label {
+            font-size: 16px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .discount-code button {
+            background-color: #f39c12;
+            color: white;
+            border: none;
+            padding: 18px;
+            font-size: 18px;
+            width: 100%;
+            margin-top: 20px;
+            cursor: pointer;
+            border-radius: 8px;
+            font-weight: 700;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .discount-code button:hover {
+            background-color: #e67e22;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="main-container">
+        <div class="header">
+            Golden Member Payment
+        </div>
+
+        <!-- Select Currency -->
+        <div class="currency-select">
+            <label for="currency">Select Currency</label>
+            <select id="currency" name="currency">
+                <option value="usd">USD ($)</option>
+                <option value="egp">EGP (EGP)</option>
+                <option value="eur">EUR (€)</option>
+            </select>
+        </div>
+
+        <form id="payment-form" action="thank_you_Golden_Member.html" method="get">
+            <!-- Cash Payment Option -->
+            <button type="submit" name="payment_method" value="cash">Pay by Cash</button>
+        </form>
+
+        <p class="info">OR</p>
+
+        <!-- Visa Payment Option -->
+        <button type="button" onclick="showVisaForm()">Pay by Visa Card</button>
+
+        <p class="info">OR</p>
+
+        <form action="thank_you_Golden_Member.html" method="get">
+            <button type="submit" name="payment_method" value="company_account">Pay by Your Company Account</button>
+        </form>
+
+        <p class="info">OR</p>
+
+        <!-- Discount Code -->
+        <div class="discount-code">
+            <label for="discount">Enter Discount Code</label>
+            <input type="text" id="discount" name="discount_code" placeholder="Enter your discount code (if any)">
+            <button type="button" onclick="applyDiscount()">Apply Discount</button>
+        </div>
+
+        <!-- Visa Details Form (Hidden initially) -->
+        <div class="visa-details" id="visa-details">
+            <h3>Enter Visa Card Details</h3>
+            <form action="thank_you_Golden_Member.html" method="get">
+                <label for="card_number">Card Number</label>
+                <input type="text" id="card_number" name="card_number" placeholder="Enter your card number" required>
+
+                <label for="expiry_date">Expiry Date</label>
+                <input type="text" id="expiry_date" name="expiry_date" placeholder="MM/YY" required>
+
+                <label for="cvv">CVV</label>
+                <input type="text" id="cvv" name="cvv" placeholder="Enter your CVV" required>
+
+                <button type="submit" name="payment_method" value="visa"

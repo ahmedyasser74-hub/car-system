@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Final step to confirm your service.">
+    <title>Final Step - Confirm Service</title>
+    <link rel="icon" href="information.png" type="image/x-icon">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f4f7fb; /* Soft light blue-gray background */
+            overflow: hidden;
+        }
+
+        .container {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 600px;
+            padding: 40px;
+            text-align: center;
+            transition: all 0.3s ease-in-out;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        h1 {
+            color: #2196F3; /* Soft blue */
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+        }
+
+        p {
+            font-size: 18px;
+            margin: 10px 0;
+            color: #333;
+            line-height: 1.5;
+        }
+
+        .price {
+            font-size: 26px;
+            font-weight: 700;
+            color: #333;
+            margin: 20px 0;
+            padding: 10px;
+            background-color: #e3f2fd; /* Light blue background */
+            border-radius: 8px;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+            gap: 20px;
+        }
+
+        button {
+            width: 48%;
+            padding: 15px;
+            font-size: 18px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .agree {
+            background-color: #4CAF50; /* Soft green */
+            color: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .agree:hover {
+            background-color: #45a049;
+            transform: translateY(-2px);
+        }
+
+        .cancel {
+            background-color: #FF7043; /* Soft red-orange */
+            color: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .cancel:hover {
+            background-color: #f44336;
+            transform: translateY(-2px);
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+
+            button {
+                width: 100%;
+                font-size: 16px;
+                margin-bottom: 15px;
+            }
+
+            .buttons {
+                flex-direction: column;
+            }
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Final Step</h1>
+        <p>You are just one step away from getting the help you need.</p>
+        <p>Please confirm the service to proceed.</p>
+        <div class="price">
+            Total Service Price: <strong>$150</strong>
+        </div>
+        <div class="buttons">
+            <button class="agree" onclick="confirmService()">Agree</button>
+            <button class="cancel" onclick="cancelService()">Cancel</button>
+        </div>
+    </div>
+
+    <script>
+        function confirmService() {
+            alert('Thank you! Our team is on the way to help you.');
+            window.location.href = 'Payment_Options.html'; 
+        }
+
+        function cancelService() {
+            alert('You have canceled the service. If you need help later, don’t hesitate to contact us.');
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>

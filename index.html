@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car System - Roadside Assistance</title>
+    <link rel="icon" href="information.png" type="image/x-icon">
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1a1a2e, #16213e); /* Dark gradient */
+            color: #f0f0f0; /* Light text for contrast */
+            overflow-x: hidden;
+        }
+
+        .container {
+            width: 85%;
+            margin: auto;
+            padding: 20px;
+        }
+
+        h1, h2, h3 {
+            color: #00d9a7; /* Vibrant green */
+        }
+
+        p {
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: #00d9a7;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #ffffff;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #0f3460, #16213e);
+            text-align: center;
+            padding: 80px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header h1 {
+            font-size: 3.5em;
+            animation: fade-in-down 1s ease-in-out;
+        }
+
+        header p {
+            margin: 20px 0;
+            font-size: 1.3em;
+            animation: fade-in-up 1s ease-in-out;
+        }
+
+        header .button {
+            background-color: #00d9a7;
+            color: #16213e;
+            padding: 12px 30px;
+            border-radius: 5px;
+            font-size: 1.2em;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        header .button:hover {
+            background-color: #02c39a;
+            transform: scale(1.1);
+        }
+
+        header img {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            max-width: 600px;
+            opacity: 0.1; /* Transparent background effect */
+        }
+
+        /* Features Section */
+        #features {
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .features-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        .feature {
+            background: #0f3460;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+        }
+
+        .feature img {
+            width: 60px;
+            height: 60px;
+            margin-bottom: 15px;
+        }
+
+        .feature h3 {
+            margin-bottom: 10px;
+        }
+
+        /* How It Works Section */
+        #how-it-works {
+            background: #16213e;
+            padding: 60px 0;
+            color: #e0e0e0;
+        }
+
+        #how-it-works ol {
+            margin-top: 30px;
+            list-style-type: decimal;
+            padding-left: 40px;
+        }
+
+        #how-it-works li {
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        /* Footer Section */
+        footer {
+            background: #0f3460;
+            text-align: center;
+            padding: 40px 20px;
+            color: #f0f0f0;
+        }
+
+        footer h2 {
+            font-size: 2em;
+            margin-bottom: 10px;
+        }
+
+        footer p {
+            font-size: 1.1em;
+        }
+
+        footer .button {
+            background-color: #00d9a7;
+            color: #16213e;
+            margin-bottom: 40px;
+            padding: 10px 25px;
+            border-radius: 10px;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease;
+        }
+
+        footer .button:hover {
+            background-color: #02c39a;
+        }
+
+        /* Animations */
+        @keyframes fade-in-down {
+            0% {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fade-in-up {
+            0% {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Car System</h1>
+            <p>Experience the future of roadside assistance with cutting-edge technology.</p>
+            <a href="Service_Page.html" class="button">Get Started</a>
+            <img src="background.jpg" alt="Background Design">
+        </div>
+    </header>
+
+    <section id="features">
+        <div class="container">
+            <h2>Our Features</h2>
+            <div class="features-container">
+                <div class="feature">
+                    <img src="mobile-app.png" alt="App">
+                    <h3>Modern App</h3>
+                    <p>Stay connected with a sleek, intuitive app for all your service needs.</p>
+                </div>
+                <div class="feature">
+                    <img src="map-pin-front-side-with-white-background.jpg" alt="GPS">
+                    <h3>Live Tracking</h3>
+                    <p>Accurate real-time tracking of our service vehicles, right at your fingertips.</p>
+                </div>
+                <div class="feature">
+                    <img src="payment.png" alt="Payment">
+                    <h3>Secure Payments</h3>
+                    <p>Pay confidently with secure and versatile payment options.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="how-it-works">
+        <div class="container">
+            <h2>How It Works</h2>
+            <ol>
+                <li>Open the app and choose your service.</li>
+                <li>Track the provider in real time.</li>
+                <li>Complete the payment securely.</li>
+                <li>Rate your experience for better services.</li>
+            </ol>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <h2>Join Us Now</h2>
+            <p>Download the app or contact us to start your journey!</p>
+            <a href="Service_Page.html" class="button">Get Started</a>
+        </div>
+    </footer>
+    
+</body>
+</html>
